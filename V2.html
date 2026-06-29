@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Ramakrishna Steels | Cement, Iron & Sanitary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal: #1A1A1A;
+      --off-white: #F5F0E8;
+      --red: #C0392B;
+      --red-dark: #96281B;
+      --steel: #8A9BA8;
+      --amber: #D4A017;
+      --mid: #2C2C2C;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--charcoal);
+      color: var(--off-white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(26,26,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--off-white);
+    }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--steel);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--off-white); }
+
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 3px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-dark) !important; color: #fff !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 70px 5% 0;
+    }
+
+    /* Diagonal stripe background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 30px,
+          rgba(192,57,43,0.04) 30px,
+          rgba(192,57,43,0.04) 31px
+        );
+    }
+
+    .hero-bg-accent {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 30%, rgba(192,57,43,0.12) 100%);
+      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .line-accent {
+      color: var(--red);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--steel);
+      line-height: 1.7;
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--off-white);
+      padding: 0.9rem 2rem;
+      border: 1px solid rgba(245,240,232,0.25);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--off-white); transform: translateY(-2px); }
+
+    /* Hero visual card stack */
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .material-card {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.8rem 1.5rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .material-card:hover {
+      border-color: rgba(192,57,43,0.5);
+      transform: translateY(-4px);
+    }
+
+    .material-card.tall { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+
+    .material-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .material-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .material-card p { font-size: 0.8rem; color: var(--steel); line-height: 1.5; }
+
+    .card-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid rgba(212,160,23,0.3);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .hero-location {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    /* DIVIDER */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+      margin: 0 5%;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      padding: 3rem 5%;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      text-align: center;
+    }
+    .trust-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+      display: block;
+    }
+    .trust-label {
+      font-size: 0.75rem;
+      color: var(--steel);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* PRODUCTS */
+    section { padding: 6rem 5%; }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--amber);
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+    .section-title em { color: var(--red); font-style: normal; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .product-item {
+      background: var(--mid);
+      padding: 3rem 2.5rem;
+      transition: background 0.25s;
+    }
+    .product-item:hover { background: #333; }
+
+    .product-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+      margin-bottom: -0.5rem;
+    }
+    .product-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: rgba(192,57,43,0.12);
+      border: 1px solid rgba(192,57,43,0.3);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .product-item h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .product-item p { font-size: 0.85rem; color: var(--steel); line-height: 1.65; }
+
+    .product-brands {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .brand-chip {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--steel);
+    }
+
+    /* WHY US */
+    .why-section {
+      background: var(--mid);
+      margin: 0;
+      padding: 6rem 5%;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 3.5rem;
+    }
+
+    .why-item {
+      background: var(--mid);
+      padding: 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      transition: background 0.2s;
+    }
+    .why-item:hover { background: #333; }
+
+    .why-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .why-item h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .why-item p { font-size: 0.85rem; color: var(--steel); line-height: 1.65; }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 6rem 5%;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info h2 em { color: var(--red); font-style: normal; }
+
+    .contact-info p {
+      color: var(--steel);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(192,57,43,0.12);
+      border: 1px solid rgba(192,57,43,0.25);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.2rem;
+    }
+    .contact-detail-text span {
+      font-size: 0.9rem;
+      color: var(--off-white);
+      line-height: 1.5;
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+    .contact-form h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      color: var(--off-white);
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: #2C2C2C; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .footer-brand span { color: var(--red); }
+    footer p {
+      font-size: 0.75rem;
+      color: var(--steel);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text-content > * {
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-text-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-text-content > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-text-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-text-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .products-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar { gap: 2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-text-content > * { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Sri <span>Ramakrishna</span> Steels</div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-accent"></div>
+    <div class="hero-content">
+      <div class="hero-text-content">
+        <div class="hero-eyebrow">East Godavari's Trusted Supplier</div>
+        <h1 class="hero-title">
+          Built on
+          <span class="line-accent">Strength.</span>
+          Delivered with Trust.
+        </h1>
+        <p class="hero-subtitle">
+          Quality cement, iron, and sanitary supplies for contractors and builders in Appanapalli and across East Godavari District.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get in Touch</a>
+          <a href="#products" class="btn-ghost">View Products</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="material-card tall">
+          <div>
+            <span class="material-icon">🏗️</span>
+            <h3>Iron & TMT Bars</h3>
+            <p>High-grade TMT rebar and structural steel for every construction project, large or small.</p>
+          </div>
+          <span class="card-tag">In Stock</span>
+        </div>
+        <div class="material-card">
+          <span class="material-icon">🧱</span>
+          <h3>Cement</h3>
+          <p>Premium brands for walls, slabs, and foundations.</p>
+          <span class="card-tag">Multiple Brands</span>
+        </div>
+        <div class="material-card">
+          <span class="material-icon">🚿</span>
+          <h3>Sanitary</h3>
+          <p>Fittings, pipes, and fixtures for complete builds.</p>
+          <span class="card-tag">Full Range</span>
+        </div>
+        <div class="hero-location">📍 Appanapalli, East Godavari</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <span class="trust-number">10+</span>
+      <span class="trust-label">Years in Business</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-number">3</span>
+      <span class="trust-label">Product Categories</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-number">500+</span>
+      <span class="trust-label">Happy Customers</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-number">1</span>
+      <span class="trust-label">District We Serve</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Supply</div>
+      <h2 class="section-title">Our <em>Products</em></h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-item">
+        <div class="product-number">01</div>
+        <div class="product-icon-wrap">🧱</div>
+        <h3>Cement</h3>
+        <p>We stock leading cement brands suited for all structural and plastering work — from column footings to final finishes.</p>
+        <div class="product-brands">
+          <span class="brand-chip">ACC</span>
+          <span class="brand-chip">Ultratech</span>
+          <span class="brand-chip">Ramco</span>
+          <span class="brand-chip">Birla</span>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-number">02</div>
+        <div class="product-icon-wrap">🏗️</div>
+        <h3>Iron & TMT Steel</h3>
+        <p>Ribbed TMT bars, binding wire, and structural iron for residential, commercial, and agricultural construction projects.</p>
+        <div class="product-brands">
+          <span class="brand-chip">Fe-500D</span>
+          <span class="brand-chip">TMT Bars</span>
+          <span class="brand-chip">Binding Wire</span>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-number">03</div>
+        <div class="product-icon-wrap">🚿</div>
+        <h3>Sanitary & Plumbing</h3>
+        <p>Complete range of sanitary ware, PVC pipes, fittings, taps, and bathroom fixtures for modern builds.</p>
+        <div class="product-brands">
+          <span class="brand-chip">PVC Pipes</span>
+          <span class="brand-chip">CPVC</span>
+          <span class="brand-chip">Fittings</span>
+          <span class="brand-chip">Fixtures</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <div class="why-section" id="why">
+    <div class="section-header">
+      <div class="section-eyebrow">Why Choose Us</div>
+      <h2 class="section-title">The <em>Difference</em> We Make</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-icon">🏆</span>
+        <div>
+          <h4>Quality Assured</h4>
+          <p>Every product we stock meets ISI and BIS standards. We never compromise on the quality of materials that go into your construction.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">🚚</span>
+        <div>
+          <h4>Local, Fast Delivery</h4>
+          <p>Based in Appanapalli, Mamidikuduru Mandal — we know the roads, the sites, and the schedules. Get your materials when you need them.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">💰</span>
+        <div>
+          <h4>Competitive Pricing</h4>
+          <p>Fair, transparent pricing for contractors and individual buyers alike. No hidden costs, bulk discounts available on request.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">🤝</span>
+        <div>
+          <h4>Long-Term Relationships</h4>
+          <p>We've served East Godavari builders for years. Our reputation is built on trust, reliability, and standing behind what we sell.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-eyebrow">Reach Out</div>
+        <h2>Let's <em>Build</em> Together</h2>
+        <p>Whether you need a quote, bulk order, or just want to check stock availability — we're here. Walk in or send us a message.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Location</strong>
+            <span>Appanapalli, Mamidikuduru Mandal<br>East Godavari District, Andhra Pradesh</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text">
+            <strong>Phone</strong>
+            <span>+91 XXXXX XXXXX</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-text">
+            <strong>Working Hours</strong>
+            <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send an Enquiry</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Ravi Kumar" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 98765 43210" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Product Needed</label>
+          <select>
+            <option value="">Select a category...</option>
+            <option>Cement</option>
+            <option>Iron / TMT Steel</option>
+            <option>Sanitary & Plumbing</option>
+            <option>Mixed / Multiple</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea placeholder="Tell us what you need — quantity, brand preference, delivery location..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%; justify-content: center;">Send Enquiry →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Sri <span>Ramakrishna</span> Steels</div>
+    <p>Appanapalli, East Godavari District, Andhra Pradesh</p>
+    <p style="font-size:0.7rem;">© 2026 Sri Ramakrishna Steels. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
