@@ -347,9 +347,12 @@
     .section-title em { color: var(--yellow-dark); font-style: normal; }
 
     /* PRODUCTS */
+    #products {
+      background: var(--white);
+    }
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
@@ -575,6 +578,28 @@
     .hero-text-content > *:nth-child(3) { animation-delay: 0.3s; }
     .hero-text-content > *:nth-child(4) { animation-delay: 0.4s; }
 
+    .map-wrap {
+      margin-top: 2rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(27,58,107,0.08);
+    }
+    .map-open-btn {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .map-open-btn:hover { background: var(--navy-dark); }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-content { grid-template-columns: 1fr; }
@@ -637,7 +662,7 @@
           <span class="material-icon">🧱</span>
           <h3>Cement</h3>
           <p>Premium brands for walls, slabs, and foundations.</p>
-          <span class="card-tag">RAMCO EXCLUSIVE Dealer</span>
+          <span class="card-tag">Multiple Brands</span>
         </div>
         <div class="material-card">
           <span class="material-icon">🚿</span>
@@ -657,7 +682,7 @@
       <span class="trust-label">Years in Business</span>
     </div>
     <div class="trust-item">
-      <span class="trust-number">3</span>
+      <span class="trust-number">4</span>
       <span class="trust-label">Product Categories</span>
     </div>
     <div class="trust-item">
@@ -682,10 +707,10 @@
         <h3>Cement</h3>
         <p>We stock leading cement brands suited for all structural and plastering work — from column footings to final finishes.</p>
         <div class="product-brands">
-          <span class="brand-chip">RAMCO</span>
-          <span class="brand-chip">Crete</span>
-          <span class="brand-chip">Super Grade</span>
-          <span class="brand-chip">Plaster</span>
+          <span class="brand-chip">ACC</span>
+          <span class="brand-chip">Ultratech</span>
+          <span class="brand-chip">Ramco</span>
+          <span class="brand-chip">Birla</span>
         </div>
       </div>
       <div class="product-item">
@@ -707,6 +732,17 @@
           <span class="brand-chip">CPVC</span>
           <span class="brand-chip">Fittings</span>
           <span class="brand-chip">Fixtures</span>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-icon-wrap">⚡</div>
+        <h3>Electrical</h3>
+        <p>Wiring, switches, circuit breakers, conduits, and electrical accessories for safe and reliable installations in any building.</p>
+        <div class="product-brands">
+          <span class="brand-chip">Wires & Cables</span>
+          <span class="brand-chip">Switches</span>
+          <span class="brand-chip">MCBs</span>
+          <span class="brand-chip">Conduits</span>
         </div>
       </div>
     </div>
@@ -768,15 +804,30 @@
           <div class="contact-detail-icon">📞</div>
           <div class="contact-detail-text">
             <strong>Phone</strong>
-            <span>+91 81849 05553</span>
+            <span>+91 XXXXX XXXXX</span>
           </div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">🕐</div>
           <div class="contact-detail-text">
             <strong>Working Hours</strong>
-            <span>Sun – Sat: 6:00 AM – 8:00 PM</span>
+            <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
           </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=Appanapalli,+Mamidikuduru+Mandal,+East+Godavari&output=embed&z=15"
+            width="100%"
+            height="260"
+            style="border:0; border-radius:10px; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <a href="https://maps.app.goo.gl/rsK5qC67KuJJdo8f8" target="_blank" class="map-open-btn">
+            📍 Open in Google Maps
+          </a>
         </div>
       </div>
 
@@ -789,7 +840,7 @@
           </div>
           <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" placeholder="+91 90000 00000" />
+            <input type="tel" placeholder="+91 98765 43210" />
           </div>
         </div>
         <div class="form-group">
@@ -799,6 +850,7 @@
             <option>Cement</option>
             <option>Iron / TMT Steel</option>
             <option>Sanitary &amp; Plumbing</option>
+            <option>Electrical</option>
             <option>Mixed / Multiple</option>
           </select>
         </div>
